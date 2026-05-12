@@ -1,0 +1,770 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <title>Stop child Labour</title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+
+</head>
+
+<body>
+
+    <div class="container-fluid top-bar">
+
+        <div class="row align-items-center h-100">
+
+            <div class="col-lg-4 text-center text-lg-start">
+
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+                </a>
+
+            </div>
+
+            <div class="col-lg-8 d-none d-lg-block">
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square">
+                                <i class="fa fa-phone-alt text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+                                <h6 class="mb-0">Call Us</h6>
+                                <span class="text-white">
+                                    +012 345 6789
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square">
+                                <i class="fa fa-envelope-open text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+                                <h6 class="mb-0">Mail Us</h6>
+                                <span class="text-white">
+                                    info@domain.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square">
+                                <i class="fa fa-map-marker-alt text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+                                <h6 class="mb-0">Address</h6>
+                                <span class="text-white">
+                                    123 Street, NY, USA
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff6f0f;">
+
+        <span class="navbar-brand d-lg-none">
+            Menu
+        </span>
+
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+
+            <i class="fa-solid fa-ellipsis"></i>
+
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
+
+            <ul class="navbar-nav text-left">
+
+                <li class="nav-item active">
+
+                    <a class="nav-link" href="{% url 'home' %}">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                        Who We Are
+
+                    </a>
+
+                    <div class="dropdown-menu text-center">
+
+                        <a class="dropdown-item" href="{% url 'about' %}">
+
+                            About Us
+
+                        </a>
+
+                        <a class="dropdown-item" href="{% url 'why_children' %}">
+
+                            Why Children?
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                        What We Do
+
+                    </a>
+
+                    <div class="dropdown-menu text-center">
+
+                        <a class="dropdown-item" href="{% url 'child_education' %}">
+
+                            Child Education
+
+                        </a>
+
+                        <a class="dropdown-item" href="{% url 'child_health' %}">
+
+                            Child Health
+
+                        </a>
+
+                        <a class="dropdown-item" href="{% url 'stop_child_labour' %}">
+
+                            Stop Child Labour
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="{% url 'contact' %}">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+    <div class="mobile-icons d-flex align-items-center">
+
+        {% if request.user.is_authenticated %}
+
+        <a href="/dashboard/"
+           class="login-btn-nav mr-2">
+
+            {{ request.user.username }}
+
+        </a>
+
+        {% else %}
+
+        <a href="/login/"
+           class="login-btn-nav mr-2">
+
+            <i class="fa fa-user"></i>
+
+        </a>
+
+        {% endif %}
+
+        <!-- SOCIAL -->
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://x.com/">
+
+            <i class="fab fa-twitter"></i>
+
+        </a>
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://instagram.com/">
+
+            <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://youtube.com/">
+
+            <i class="fab fa-youtube"></i>
+
+        </a>
+
+    </div>
+    </nav>
+<!-- NAVBAR -->
+    <section class="labour-hero-section">
+
+    <div class="container text-center">
+
+        <h1 class="labour-main-title">
+            Help Stop Child Labour and
+            Prevent Child Labour in India
+        </h1>
+
+        <div class="labour-yellow-line"></div>
+
+        <p class="labour-main-text">
+            At Donation, we work to create a safe and protective environment for every child.
+            Our mission is to prevent child labour, protect children from exploitation,
+            and help them continue their education with dignity.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="labour-image-section">
+
+    <img src="{% static 'img/labour-main.jpg' %}" alt="Stop Child Labour">
+
+</section>
+
+
+<section class="labour-program-section">
+
+    <div class="container text-center">
+
+        <h2 class="labour-section-title">
+            Our Program Against
+            <span>Child Labour</span>
+        </h2>
+
+        <p class="labour-section-para">
+            Children exposed to unsafe work environments face serious consequences that affect
+            their physical, emotional, mental and social development. We work with communities
+            to help rescue child labour victims and support their return to school.
+        </p>
+
+        <p class="labour-section-para">
+            Here are the main focus areas of our child protection program:
+        </p>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-card">
+                    <img src="{% static 'img/labour-1.jpg' %}" alt="">
+                    <h3>Access To Government Benefits</h3>
+                    <hr>
+                    <p>
+                        Helping vulnerable children complete their education by getting access
+                        to scholarships, education materials and government support.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-card">
+                    <img src="{% static 'img/labour-2.jpg' %}" alt="">
+                    <h3>Connecting Parents With Job Opportunities</h3>
+                    <hr>
+                    <p>
+                        Supporting families with livelihood opportunities so children do not
+                        have to work and can continue their education.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-card">
+                    <img src="{% static 'img/labour-3.jpg' %}" alt="">
+                    <h3>Organising Awareness Rallies</h3>
+                    <hr>
+                    <p>
+                        Mobilising communities and spreading awareness to bring children
+                        back to school and protect them from labour.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="labour-stats-section">
+
+    <div class="container text-center">
+
+        <h2 class="labour-stats-title">
+            Statistics on <span>Child Labour</span> in India
+        </h2>
+
+        <p class="labour-stats-para">
+            Child labour remains a serious issue and requires collective action
+            to build a safer future for children.
+        </p>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-stat-box">
+                    <h3>46</h3>
+                    <p>
+                        million children between 6–18 years of age do not go to school
+                    </p>
+                    <span>UDISE 2016–17</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-stat-box">
+                    <h3>33</h3>
+                    <p>
+                        million working children in India between 6–18 years
+                    </p>
+                    <span>Census 2011</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="labour-stat-box">
+                    <h3>8.9</h3>
+                    <p>
+                        million child labourers attend school parallely
+                    </p>
+                    <span>Census 2011</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="labour-key-section">
+
+    <div class="labour-key-container">
+
+        <div class="labour-key-left">
+
+            <h2 class="labour-key-title">
+                Join our fight against
+                <span>child labour</span>
+            </h2>
+
+            <p>
+                To support our cause and contribute to fighting child labour,
+                your donation can help rescue child labour victims,
+                provide them with education and create a safer future for them.
+            </p>
+
+        </div>
+
+        <div class="labour-slider-wrapper">
+
+            <button class="labour-arrow labour-prev" type="button">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button class="labour-arrow labour-next" type="button">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="labour-slider">
+
+                <div class="labour-slide-card">
+                    <img src="{% static 'img/labour-4.gif' %}" alt="">
+                    <h4>Academic Support Centres</h4>
+                </div>
+
+                <div class="labour-slide-card">
+                    <img src="{% static 'img/labour-5.gif' %}" alt="">
+                    <h4>Back To School Initiative</h4>
+                </div>
+
+                <div class="labour-slide-card">
+                    <img src="{% static 'img/labour-6.gif' %}" alt="">
+                    <h4>Re-enroll School Drop Outs</h4>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="labour-donate-section">
+
+    <div class="container text-center">
+
+        <h2 class="labour-donate-title">
+            Help Children Leave Labour And Return To School
+        </h2>
+
+        <p class="labour-donate-text">
+            Your contribution can support education, protection, awareness,
+            rescue and rehabilitation programs for vulnerable children.
+        </p>
+
+        <a href="{% url 'donate' %}" class="labour-donate-btn">
+            <i class="fa fa-heart"></i>
+            Donate Now
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="labour-faq-section">
+
+    <div class="container">
+
+        <h2 class="labour-faq-title">
+            FAQs
+        </h2>
+
+        <div class="labour-faq-item">
+            <h4>How can I contribute to an NGO for child labour in India?</h4>
+            <p>
+                You can contribute by supporting awareness campaigns, donating towards children’s
+                education and protection programs, or volunteering your time.
+            </p>
+        </div>
+
+        <div class="labour-faq-item">
+            <h4>What are the challenges faced by NGOs fighting against child labour?</h4>
+            <p>
+                Child labour NGOs often face challenges such as poverty, lack of awareness,
+                limited access to education and social acceptance of child labour.
+            </p>
+        </div>
+
+        <div class="labour-faq-item">
+            <h4>What steps can I take to help stop child labour?</h4>
+            <p>
+                You can raise awareness in your community, support education campaigns,
+                donate to trusted child welfare programs, and encourage children to stay in school.
+            </p>
+        </div>
+
+        <div class="labour-faq-item">
+            <h4>Why should you support an NGO fighting against child labour?</h4>
+            <p>
+                Supporting child labour prevention helps children get education, safety,
+                opportunities and protection from unsafe work environments.
+            </p>
+        </div>
+
+        <div class="labour-faq-item">
+            <h4>How does support help prevent child labour at the grassroots level?</h4>
+            <p>
+                Support helps strengthen awareness programs, connect families to government schemes,
+                provide education support, and protect children from exploitation.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<!-- Footer -->
+    <footer class="footer bg-dark text-light pt-5 pb-4">
+
+        <div class="container">
+
+            <!-- ROW: COLUMNS -->
+            <div class="row">
+
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">Who We Are?</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'about' %}" class="text-light text-decoration-none">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'why_children' %}" class="text-light text-decoration-none">
+                                Why Children?
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">What We Do?</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'child_education' %}" class="text-light text-decoration-none">
+                                Child Education
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'child_health' %}" class="text-light text-decoration-none">
+                                Child Health
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'stop_child_labour' %}" class="text-light text-decoration-none">
+                                Stop Child Labour
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">Take Action</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'donate' %}" class="text-light text-decoration-none">
+                                Donate
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'contact' %}" class="text-light text-decoration-none">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-6 mb-4">
+
+                    <h6 class="fw-bold">Get Involved</h6>
+
+                    <ul class="list-unstyled">
+                        <li>Volunteering</li>
+                        <li>Careers</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+
+                    <h6 class="fw-bold">How To Contribute?</h6>
+
+                    <ul class="list-unstyled">
+                        <li>Donation FAQs</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="row justify-content-center text-center mt-4">
+
+                <div class="col-lg-8">
+
+                    <h5 class="mb-4">Subscribe to our newsletter</h5>
+
+                    <div class="row g-3 align-items-center">
+
+                        <div class="col-md-4">
+                            <input type="text" class="form-control border-0 border-bottom bg-transparent text-light"
+                                placeholder="Name">
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="email" class="form-control border-0 border-bottom bg-transparent text-light"
+                                placeholder="Email">
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn btn-warning rounded-pill px-4">
+                                Subscribe
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="row text-center mt-4">
+
+                <div class="col">
+
+                    <i class="fab fa-facebook-f mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-x-twitter mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-instagram mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-linkedin-in mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-youtube mx-2"></i>
+
+                </div>
+
+            </div>
+
+            <!-- LINKS -->
+            <div class="row text-center mt-3">
+
+                <div class="col">
+
+                    <a href="#" class="text-decoration-none text-light mx-2">
+                        Careers
+                    </a>
+
+                    <span class="text-warning">•</span>
+
+                    <a href="{% url 'faqs' %}" class="text-decoration-none text-light mx-2">
+                        FAQs
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="row text-center mt-3">
+
+                <div class="col small text-secondary">
+                    © 2026 Donation - Child Rights and You. All rights reserved.
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+<div class="back-to-top-box" id="backToTop">
+    <div class="back-line"></div>
+
+    <button class="back-btn" type="button">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <p>Back To Top</p>
+</div>
+
+
+<script>
+    const labourSlider = document.querySelector(".labour-slider");
+    const labourNext = document.querySelector(".labour-next");
+    const labourPrev = document.querySelector(".labour-prev");
+
+    if (labourNext && labourPrev && labourSlider) {
+        labourNext.addEventListener("click", function () {
+            labourSlider.scrollBy({
+                left: 450,
+                behavior: "smooth"
+            });
+        });
+
+        labourPrev.addEventListener("click", function () {
+            labourSlider.scrollBy({
+                left: -450,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    const backToTop = document.getElementById("backToTop");
+
+    if (backToTop) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

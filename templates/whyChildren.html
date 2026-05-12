@@ -1,0 +1,746 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <title>Why Children</title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+
+</head>
+
+<body>
+
+    <!-- Topbar Start -->
+    <div class="container-fluid top-bar">
+
+        <div class="row align-items-center h-100">
+
+            <div class="col-lg-4 text-center text-lg-start">
+
+                <a href="{% url 'home' %}">
+
+                    <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+
+                    <h1></h1>
+
+                </a>
+
+            </div>
+
+            <div class="col-lg-8 d-none d-lg-block">
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+
+                        <div class="d-flex justify-content-end">
+
+                            <div class="flex-shrink-0 btn-square ">
+                                <i class="fa fa-phone-alt text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+
+                                <h6 class="mb-0">Call Us</h6>
+
+                                <span class="text-white">+012 345 6789</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <div class="d-flex justify-content-end">
+
+                            <div class="flex-shrink-0 btn-square ">
+                                <i class="fa fa-envelope-open text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+
+                                <h6 class="mb-0">Mail Us</h6>
+
+                                <span class="text-white">info@domain.com</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <div class="d-flex justify-content-end">
+
+                            <div class="flex-shrink-0 btn-square">
+                                <i class="fa fa-map-marker-alt text-dark"></i>
+                            </div>
+
+                            <div class="ms-2">
+
+                                <h6 class="mb-0">Address</h6>
+
+                                <span class="text-white">123 Street, NY, USA</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Topbar End -->
+
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff6f0f;">
+
+        <!-- MOBILE MENU TEXT -->
+        <span class="navbar-brand d-lg-none">Menu</span>
+
+        <!-- TOGGLER BUTTON -->
+        <button class="navbar-toggler border-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown">
+
+            <i class="fa-solid fa-ellipsis"></i>
+
+        </button>
+
+        <!-- NAV ITEMS -->
+        <div class="collapse navbar-collapse justify-content-left"
+            id="navbarNavDropdown">
+
+            <ul class="navbar-nav text-left">
+
+                <li class="nav-item active">
+
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle"
+                        href="#"
+                        data-toggle="dropdown">
+
+                        Who We Are
+
+                    </a>
+
+                    <div class="dropdown-menu text-center">
+
+                        <a class="dropdown-item"
+                            href="{% url 'about' %}">
+
+                            About Us
+
+                        </a>
+
+                        <a class="dropdown-item"
+                            href="{% url 'why_children' %}">
+
+                            Why Children?
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle"
+                        href="#"
+                        data-toggle="dropdown">
+
+                        What We Do
+
+                    </a>
+
+                    <div class="dropdown-menu text-center">
+
+                        <a class="dropdown-item"
+                            href="{% url 'child_education' %}">
+
+                            Child Education
+
+                        </a>
+
+                        <a class="dropdown-item"
+                            href="{% url 'child_health' %}">
+
+                            Child Health
+
+                        </a>
+
+                        <a class="dropdown-item"
+                            href="{% url 'stop_child_labour' %}">
+
+                            Stop Child Labour
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="{% url 'contact' %}">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+         <!-- RIGHT SIDE -->
+    <div class="mobile-icons d-flex align-items-center">
+
+        {% if request.user.is_authenticated %}
+
+        <a href="/dashboard/"
+           class="login-btn-nav mr-2">
+
+            {{ request.user.username }}
+
+        </a>
+
+        {% else %}
+
+        <a href="/login/"
+           class="login-btn-nav mr-2">
+
+            <i class="fa fa-user"></i>
+
+        </a>
+
+        {% endif %}
+
+        <!-- SOCIAL -->
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://x.com/">
+
+            <i class="fab fa-twitter"></i>
+
+        </a>
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://instagram.com/">
+
+            <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <a class="btn btn-square btn-dark ml-1"
+           href="https://youtube.com/">
+
+            <i class="fab fa-youtube"></i>
+
+        </a>
+
+    </div>
+    </nav>
+    <!--navbar-->
+
+
+    <section class="why-children">
+
+        <div class="container">
+
+            <div class="row justify-content-center text-center">
+
+                <div class="col-lg-8 col-md-10 col-12">
+
+                    <!-- Heading -->
+                    <h1 class="heading">Why Children?</h1>
+
+                    <div class="underline"></div>
+
+                    <!-- Paragraph -->
+                    <p class="description">
+                        Children are the building blocks of our nation’s future. Let’s invest in their potential today,
+                        so that they can become our scientists, politicians, sportspeople, journalists and teachers of tomorrow!
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Image Row -->
+            <div class="row mt-4">
+
+                <div class="col-12">
+
+                    <img src="{% static 'img/childrens-1.jpg' %}"
+                        alt="children"
+                        class="img-fluid children-img">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHILDREN STATS SECTION START -->
+    <section class="children-stats-section py-5">
+
+        <div class="container">
+
+            <!-- TOP BOX -->
+            <div class="stats-main-box">
+
+                <div class="row align-items-center">
+
+                    <!-- LEFT SIDE -->
+                    <div class="col-lg-5 col-md-12 text-center mb-4 mb-lg-0">
+
+                        <div class="india-map-wrapper">
+
+                            <!-- India Map -->
+                            <img src="{% static 'img/india-map-children.png' %}"
+                                alt="Children Stats"
+                                class="img-fluid stats-map india-map">
+
+                            <!-- Child Icons on Map -->
+                           <div class="child-icons">
+
+                    <!-- Yellow Icons -->
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+                    <span class="child yellow"><i class="fa fa-child"></i></span>
+
+                    <!-- Gray Icons -->
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    <span class="child gray"><i class="fa fa-child"></i></span>
+                    
+
+                </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+                    <div class="col-lg-7 col-md-12">
+
+                        <div class="stats-right">
+
+                            <h2>
+                                At 472 million, children
+                                <span>account for 40%</span>
+                                of India’s population
+                            </h2>
+
+                            <p>
+                                And yet, only 2.46% of the 2021–22 Union Budget was allocated
+                                to their development and welfare.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CENTER HEADING -->
+            <div class="row justify-content-center text-center my-5">
+
+                <div class="col-lg-9">
+
+                    <h2 class="middle-heading">
+                        India’s children battle
+                        <span>some of the worst circumstances</span>
+                        in the world.
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <!-- CARDS -->
+            <div class="row justify-content-center">
+
+                <!-- CARD 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="stat-card">
+
+                        <h3>33</h3>
+
+                        <h4>million</h4>
+
+                        <p>child labourers go to work instead of school</p>
+
+                        <span>Census 2011</span>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="stat-card">
+
+                        <h3>1 of 3</h3>
+
+                        <h4>child</h4>
+
+                        <p>brides in the world is from India</p>
+
+                        <span>UNICEF 2014</span>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="stat-card">
+
+                        <h3>2 of 3</h3>
+
+                        <h4>child</h4>
+
+                        <p>deaths below the age of 5 are caused by malnutrition</p>
+
+                        <span>UNICEF 2019</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FINAL CTA -->
+            <div class="row justify-content-center text-center mt-5">
+
+                <div class="col-lg-10">
+
+                    <div class="final-help-section">
+
+                        <h2>
+                            This problem before us is a mammoth one.
+                            But <span>one that can be solved</span>
+                            within our lifetimes.
+                        </h2>
+
+                        <p>
+                            All it needs is for each one of us to come together and do everything
+                            in our power to contribute to a sustainable solution.
+                        </p>
+
+                        <a href="{% url 'donate' %}" class="help-btn">
+
+                            <i class="fa fa-heart"></i>
+
+                            Yes! I Want To Help!
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- WHY CHILDREN STATS SECTION END -->
+
+
+    <!--footer-->
+    <footer class="footer bg-dark text-light pt-5 pb-4">
+
+        <div class="container">
+
+            <!-- ROW: COLUMNS -->
+            <div class="row">
+
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">Who We Are?</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'about' %}" class="text-light text-decoration-none">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'why_children' %}" class="text-light text-decoration-none">
+                                Why Children?
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">What We Do?</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'child_education' %}" class="text-light text-decoration-none">
+                                Child Education
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'child_health' %}" class="text-light text-decoration-none">
+                                Child Health
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'stop_child_labour' %}" class="text-light text-decoration-none">
+                                Stop Child Labour
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+
+                    <h6 class="fw-bold">Take Action</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="{% url 'donate' %}" class="text-light text-decoration-none">
+                                Donate
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'contact' %}" class="text-light text-decoration-none">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-6 mb-4">
+
+                    <h6 class="fw-bold">Get Involved</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>Volunteering</li>
+
+                        <li>Careers</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+
+                    <h6 class="fw-bold">How To Contribute?</h6>
+
+                    <ul class="list-unstyled">
+
+                        <li>Donation FAQs</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="row justify-content-center text-center mt-4">
+
+                <div class="col-lg-8">
+
+                    <h5 class="mb-4">Subscribe to our newsletter</h5>
+
+                    <div class="row g-3 align-items-center">
+
+                        <div class="col-md-4">
+                            <input type="text"
+                                class="form-control border-0 border-bottom bg-transparent text-light"
+                                placeholder="Name">
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="email"
+                                class="form-control border-0 border-bottom bg-transparent text-light"
+                                placeholder="Email">
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn btn-warning rounded-pill px-4">Subscribe</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="row text-center mt-4">
+
+                <div class="col">
+
+                    <i class="fab fa-facebook-f mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-x-twitter mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-instagram mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-linkedin-in mx-2"></i>
+
+                    <span class="text-warning">•</span>
+
+                    <i class="fab fa-youtube mx-2"></i>
+
+                </div>
+
+            </div>
+
+            <!-- LINKS -->
+            <div class="row text-center mt-3">
+
+                <div class="col">
+
+                    <a href="#" class="text-decoration-none text-light mx-2">Careers</a>
+
+                    <span class="text-warning">•</span>
+
+                    <a href="#" class="text-decoration-none text-light mx-2">FAQs</a>
+
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="row text-center mt-3">
+
+                <div class="col small text-secondary">
+                    © 2026 Donation - Child Rights and You. All rights reserved.
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
