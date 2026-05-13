@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-95_@j9)+-jqo^d!5bg#3_av)$*gnm!kpk9essu+w&oi_)c86)w
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['donation-project-znw9.onrender.com']
 
 
 # =========================
