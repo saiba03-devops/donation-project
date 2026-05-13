@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================
 SECRET_KEY = 'django-insecure-95_@j9)+-jqo^d!5bg#3_av)$*gnm!kpk9essu+w&oi_)c86)w'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['donation-project-znw9.onrender.com']
 
@@ -149,10 +149,9 @@ STORAGES = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-
 
 # =========================
 # MEDIA FILES
