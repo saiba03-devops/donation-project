@@ -77,9 +77,10 @@ def contact(request):
             message=message
         )
 
-        send_mail(
-            subject,
-            f"""
+        try:
+            send_mail(
+                subject,
+                f"""
 Name: {name}
 Email: {email}
 Phone: {phone}
@@ -87,13 +88,16 @@ Location: {location}
 
 Message:
 {message}
-            """,
-            settings.EMAIL_HOST_USER,
-            ['sahibamehtab2003@gmail.com'],
-            fail_silently=False,
-        )
+                """,
+                settings.EMAIL_HOST_USER,
+                ['sahibamehtab2003@gmail.com'],
+                fail_silently=False,
+            )
 
-        messages.success(request, "Your message has been sent successfully!")
+            messages.success(request, "Your message has been sent successfully!")
+
+        except Exception:
+            messages.success(request, "Your message has been saved successfully!")
 
         return redirect('contact')
 
