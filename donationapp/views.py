@@ -222,9 +222,8 @@ def donate(request):
 
     return render(request, 'donate.html')
 
-
-
-
+def forgot_password(request):
+    return render(request, 'forgot_password.html')
 
 @csrf_exempt
 def payment_success(request):
