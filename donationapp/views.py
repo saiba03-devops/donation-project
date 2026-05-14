@@ -11,7 +11,7 @@ import razorpay
 from .models import Contact
 
 from .models import Donation
-
+from django.shortcuts import render
 
 def home(request):
     return render(request, 'index.html')
@@ -224,7 +224,7 @@ def donate(request):
 
 
 def forgot_password(request):
-    return render(request, 'forget_password.html')
+    return render(request, 'forgot_password.html')
 
 
 @csrf_exempt
