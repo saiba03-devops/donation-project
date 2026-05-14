@@ -153,12 +153,19 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
+
     donations = Donation.objects.filter(
         user=request.user
     ).order_by('-created_at')
 
+    total_donations = donations.count()
+
+    children_helped = total_donations * 2
+
     return render(request, 'dashboard.html', {
-        'donations': donations
+        'donations': donations,
+        'total_donations': total_donations,
+        'children_helped': children_helped,
     })
 
 
